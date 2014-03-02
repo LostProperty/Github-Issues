@@ -1,28 +1,19 @@
-import os
 import sys
 
 from github import Github
+from github_utils import get_label
+from settings import repo, filter_label_text, token
 
 
-repo = 'LostProperty/dove-ath'
-filter_label_text =  'Feedback' #CMS'
-filter_label = False
-token = os.getenv('FEEDBACK_GITHUB_TOKEN')
-
-g = Github(token)
-github_repo = g.get_repo(repo)
-labels = github_repo.get_labels()
-#labels = github_repo.get_labels(name='CMS') # Not supported, add add patch
-
-for label in labels:
-    if label.name == filter_label_text:
-        filter_label = label
-
-if filter_label == False:
-    sys.exit('Error: Could not find label "{0}"'.format(filter_label_text))
+github = Github(token)
+github_repo = github.get_repo(repo)
 
 # Is it possible to filter by labels without having to call get labels first?
 # Dig in the code to see what is required to create the label object
+filter_label = get_label(github_repo, filter_label_text)
+if filter_label == False:
+    sys.exit('Error: Could not find label "{0}"'.format(filter_label_text))
+
 issues = github_repo.get_issues(labels=[filter_label])
 for issue in issues:
     # TODO: check if getting assignee is causing another network request
