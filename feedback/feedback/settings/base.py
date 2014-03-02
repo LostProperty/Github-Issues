@@ -1,6 +1,6 @@
 """Common settings and globals."""
 
-
+import os
 from os.path import abspath, basename, dirname, join, normpath
 from sys import path
 
@@ -194,6 +194,7 @@ DJANGO_APPS = (
 
 # Apps specific for this project go here.
 LOCAL_APPS = (
+    'issues',
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -249,3 +250,12 @@ INSTALLED_APPS += (
 # Don't need to use South when setting up a test database.
 SOUTH_TESTS_MIGRATE = False
 ########## END SOUTH CONFIGURATION
+
+########## GITHUB ISSUES CONFIGURATION
+ISSUES_REPO = 'LostProperty/Feedback'
+ISSUES_LABEL = 'Feedback'
+GITHUB_API_TOKEN = os.getenv('FEEDBACK_GITHUB_TOKEN')
+GITHUB_USER = 'pxg'
+GITHUB_PASSWORD = os.getenv('GITHUB_PASSWORD')
+########## GITHUB ISSUES CONFIGURATION
+

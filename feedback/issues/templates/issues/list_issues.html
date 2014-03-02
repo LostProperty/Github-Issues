@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block page_title %}
+All Issues
+{% endblock %}
+
+{% block content %}
+<table border="1">
+    <thead>
+        <tr>
+            <th>Number</th>
+            <th>Title</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for issue in issues %}
+        <tr>
+            <td>#{{ issue.number }}</td>
+            <td>{{ issue.title }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
