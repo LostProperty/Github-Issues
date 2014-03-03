@@ -28,8 +28,9 @@ def add_issue(request):
             github_repo = github.get_repo(settings.ISSUES_REPO)
             label = get_label(github_repo, settings.ISSUES_LABEL)
             github_repo.create_issue(form.cleaned_data['title'],
+                form.cleaned_data['body'],
                 labels=[label])
-            # TODO: flash message (and display on tabel)
+            # TODO: flash message (and display on table)
             return redirect('list_issues')
     else:
         form = IssueForm()
