@@ -4,6 +4,8 @@ Feedback
 
 Let clients give feedback using Github issues, without them having access to all issues and source code.
 
+Getting set-up for development
+------------------------------
 Is you are accessing a private repo you will need to set your Github password as an environment variable.
 ::
 
@@ -11,7 +13,21 @@ Is you are accessing a private repo you will need to set your Github password as
 
 It appears the user needs write access to your repositry in order for them to be able to write issues with labels.
 
-To run in development
+Create database and role.
 ::
 
-    python manage.py runserver --settings=feedback.settings.local
+    psql -h localhost
+    CREATE ROLE feedback LOGIN;
+    CREATE DATABASE feedback WITH OWNER feedback ENCODING 'UTF8';
+
+Now sysnc the DB
+::
+
+    python manage.py syncdb --migrate
+
+Run the development site
+------------------------
+::
+
+    export DJANGO_SETTINGS_MODULE=feedback.settings.local
+    python manage.py runserver

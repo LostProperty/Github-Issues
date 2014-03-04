@@ -2,6 +2,8 @@ from github import Github
 
 from django.conf import settings
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import logout
 from django.shortcuts import redirect
 from django.template.response import TemplateResponse
 
@@ -9,6 +11,7 @@ from .github_utils import get_label
 from .forms import IssueForm
 
 
+@login_required
 def list_issues(request):
     # TODO: investigate Oauth2 key/secret http://developer.github.com/v3/#authentication
     github = Github(settings.GITHUB_USER, settings.GITHUB_PASSWORD)
@@ -22,6 +25,7 @@ def list_issues(request):
         {'issues': issues})
 
 
+@login_required
 def add_issue(request):
     if request.method == 'POST':
         form = IssueForm(request.POST)
@@ -38,3 +42,8 @@ def add_issue(request):
     else:
         form = IssueForm()
     return TemplateResponse(request, 'issues/add_issue.html', {'form': form})
+
+
+def logout_view(request):
+    logout(request)
+    return redirect('login')

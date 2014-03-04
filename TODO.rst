@@ -2,9 +2,9 @@
 TODO
 ====
 
-#. Password listing and adding issues (login form)
 #. Add requirements (two scoops style)
 
+#. Add logout in top navigation
 #. Style issues table
 #. Style input form
 #. Style success message
