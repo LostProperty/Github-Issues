@@ -252,10 +252,11 @@ SOUTH_TESTS_MIGRATE = False
 ########## END SOUTH CONFIGURATION
 
 ########## GITHUB ISSUES CONFIGURATION
-ISSUES_REPO = 'LostProperty/Feedback'
+ISSUES_REPO = 'LostProperty/Feedback_demo'
 ISSUES_LABEL = 'Feedback'
-GITHUB_API_TOKEN = os.getenv('FEEDBACK_GITHUB_TOKEN')
-GITHUB_USER = 'pxg'
+# Token not used due to low API limit currently
+#GITHUB_API_TOKEN = os.getenv('FEEDBACK_GITHUB_TOKEN')
+GITHUB_USER = 'lpmachine'
 GITHUB_PASSWORD = os.getenv('GITHUB_PASSWORD')
 ########## GITHUB ISSUES CONFIGURATION
 

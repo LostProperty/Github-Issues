@@ -2,18 +2,20 @@
 TODO
 ====
 
-#. Flash message issue added
-#. Add requirements (two scoops style)
-#. Move test issues to another repo (GooTweets?)
-
 #. Password listing and adding issues (login form)
+#. Add requirements (two scoops style)
+
 #. Style issues table
 #. Style input form
-#. Add tests (how to deal with Github connection?)
-#. Individual Issue page
-#. setup.py to install project as a package
+#. Style success message
+
+#. Individual issue page
 #. Issue edit
 #. Issue status
-#. Comments system
 #. Issue close
+#. Comments system
+
+#. Add tests (how to deal with Github connection?)
+#. setup.py to install project as a package
+
 #. More than 1/3 high priority tickets then warn
