@@ -2,7 +2,7 @@
 
 from __future__ import absolute_import
 
-from os.path import join, normpath
+from os.path import join
 
 from .base import *
 
@@ -31,7 +31,7 @@ DATABASES = {
         'USER': 'feedback',
         'HOST': '127.0.0.1',
         'PORT': '',
-        'TEST_NAME': 'allthingshair_test',
+        'TEST_NAME': 'feedback_test',
     }
 }
 ########## END DATABASE CONFIGURATION

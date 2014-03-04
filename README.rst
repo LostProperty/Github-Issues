@@ -17,7 +17,7 @@ Create database and role.
 ::
 
     psql -h localhost
-    CREATE ROLE feedback LOGIN;
+    CREATE ROLE feedback LOGIN CREATEDB;
     CREATE DATABASE feedback WITH OWNER feedback ENCODING 'UTF8';
 
 Now sysnc the DB
@@ -31,3 +31,11 @@ Run the development site
 
     export DJANGO_SETTINGS_MODULE=feedback.settings.local
     python manage.py runserver
+
+To run the tests
+----------------
+::
+
+    py.test
+
+Note you may need to run ``add2virtualenv .`` do py.test can find the your setting corrrectly.
