@@ -1,7 +1,7 @@
 import pytest
 
 #from django.http import Http404
-from django.contrib.auth.models import AnonymousUser #,User
+from django.contrib.auth.models import AnonymousUser,User
 
 from issues.views import list_issues, add_issue
 
@@ -22,5 +22,11 @@ def test_add_issue_requires_staff_user(request_with_session):
     assert response._headers['location'] == ('Location', '/login?next=/slash_doesnt_matter')
 
 
-# TODO: test_list_issues_returns_multiple_issues (mock github object?)
+@pytest.mark.django_db
+def test_list_issues_returns_multiple_issues(request_with_session):
+    request_with_session.user = User()
+    response = list_issues(request_with_session)
+    assert response.status_code == 200
+    assert len(response.context_data['issues']) == 2
+
 # TODO: test_adding_an_issue_increments_total_issues (mock github object?)

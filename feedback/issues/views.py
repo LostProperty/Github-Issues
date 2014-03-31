@@ -7,20 +7,14 @@ from django.contrib.auth import logout
 from django.shortcuts import redirect
 from django.template.response import TemplateResponse
 
-from .github_utils import get_label
+from .utils import get_label, get_issues
 from .forms import IssueForm
 
 
 @login_required
 def list_issues(request):
-    # TODO: investigate Oauth2 key/secret http://developer.github.com/v3/#authentication
-    github = Github(settings.GITHUB_USER, settings.GITHUB_PASSWORD)
-    # Auth users has a much higher API limit than the token
-    #github = Github(settings.GITHUB_API_TOKEN)
-    github_repo = github.get_repo(settings.ISSUES_REPO)
-    filter_label = get_label(github_repo, settings.ISSUES_LABEL)
-    # TODO: automatically create label if it doesn't exist
-    issues = github_repo.get_issues(labels=[filter_label])
+    filter_label = get_label()
+    issues = get_issues(filter_label)
     return TemplateResponse(request, 'issues/list_issues.html',
         {'issues': issues})
 

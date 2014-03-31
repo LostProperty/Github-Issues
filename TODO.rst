@@ -8,12 +8,12 @@ TODO
 #. Issue edit
 #. Issue status
 #. Issue close
-#. Comments system
+#. Get comment from Github omments system
 
 #. Add split requirements two scoops style
 
 #. Add logout in top navigation
-#. Style issues table
+#. Style issues table. Every other row
 #. Style input form
 #. Style success message
 

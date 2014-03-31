@@ -52,4 +52,4 @@ To run the tests
 
     py.test
 
-Note you may need to run ``add2virtualenv .`` do py.test can find the your setting corrrectly.
+Note you may need to run ``add2virtualenv .`` so py.test can find the your setting corrrectly.

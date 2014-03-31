@@ -1,4 +1,4 @@
-def get_label(github_repo, label_text):
+def github_get_label(github_repo, label_text):
     """
     Return a github issue object for supplied label_text
     """
@@ -10,7 +10,7 @@ def get_label(github_repo, label_text):
     return False
 
 
-def get_milestone(github_repo, milestone_title):
+def github_get_milestone(github_repo, milestone_title):
     """
     Return a github milestone object for supplied label_text
     """
