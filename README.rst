@@ -20,7 +20,20 @@ Create database and role.
     CREATE ROLE feedback LOGIN CREATEDB;
     CREATE DATABASE feedback WITH OWNER feedback ENCODING 'UTF8';
 
-Now sysnc the DB
+or::
+
+    createuser feedback --createdb --login
+    createdb --owner feedback --encoding='utf-8' --template=template0 feedback
+
+.. note::
+
+    1. The database instructions provided here are postgres specific
+    2. We create the feedback role without a password. The application
+       settings default to using password-less connections. You may need to
+       create a different settings module or adjust pg_hba.conf to allow
+       connection without passwords
+
+Now sync the DB
 ::
 
     python manage.py syncdb --migrate
