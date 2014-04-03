@@ -10,6 +10,7 @@ Is you are accessing a private repo you will need to set your Github password as
 ::
 
     export GITHUB_PASSWORD='your_github_password'
+    export GITHUB_USER='your_github_username'
 
 It appears the user needs write access to your repositry in order for them to be able to write issues with labels.
 

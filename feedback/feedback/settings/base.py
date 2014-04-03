@@ -258,7 +258,7 @@ ISSUES_REPO = 'LostProperty/Feedback_demo'
 ISSUES_LABEL = 'Feedback'
 # Token not used due to low API limit currently
 #GITHUB_API_TOKEN = os.getenv('FEEDBACK_GITHUB_TOKEN')
-GITHUB_USER = 'lpmachine'
+GITHUB_USER = os.getenv('GITHUB_USER', 'lpmachine')
 GITHUB_PASSWORD = os.getenv('GITHUB_PASSWORD')
 ########## GITHUB ISSUES CONFIGURATION
 
