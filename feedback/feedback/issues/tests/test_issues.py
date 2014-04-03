@@ -3,7 +3,7 @@ import pytest
 #from django.http import Http404
 from django.contrib.auth.models import AnonymousUser,User
 
-from issues.views import list_issues, add_issue
+from feedback.issues.views import list_issues, add_issue
 
 
 @pytest.mark.django_db

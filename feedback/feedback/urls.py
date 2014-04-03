@@ -10,7 +10,7 @@ admin.autodiscover()
 urlpatterns = patterns('',
     #url(r'^$', TemplateView.as_view(template_name='base.html')),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^', include('issues.urls')),
+    url(r'^', include('feedback.issues.urls')),
 )
 
 # Uncomment the next line to serve media files in dev.
