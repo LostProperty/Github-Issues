@@ -15,6 +15,7 @@ from .forms import IssueForm
 def list_issues(request):
     filter_label = get_label()
     issues = get_issues(filter_label)
+    #import pdb; pdb.set_trace()
     return TemplateResponse(request, 'issues/list_issues.html',
         {'issues': issues})
 

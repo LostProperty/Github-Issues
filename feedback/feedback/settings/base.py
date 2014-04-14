@@ -261,6 +261,8 @@ ISSUES_LABEL = 'Feedback'
 GITHUB_USER = os.getenv('GITHUB_USER', 'lpmachine')
 GITHUB_PASSWORD = os.getenv('GITHUB_PASSWORD')
 
-ISSUES_BACKEND = 'dummy'
+#ISSUES_BACKEND = 'dummy'
+ISSUES_BACKEND = 'github'
+
 ########## GITHUB ISSUES CONFIGURATION
 

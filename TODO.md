@@ -1,10 +1,22 @@
-====
-TODO
-====
+## TODO
 
-Priority
---------
-#. Individual issue page (and test)
+# Today (with wifi)
+
+ - List issues: Order by date (newest first)
+ - List issues: Check closed issue shows in table
+ - List issues: Include "to dicuss state" (check for label, new issues list with just relevent data)
+
+ - Individual issue: show real content
+ - Individual issue: next/previous
+
+# Today (offine)
+
+ - dyanmically load backend class (github, dummy, db, etc)
+ - write DB backend
+ - write tests for DB and dummy backend
+
+# Priority
+
 #. Add logout in top navigation
 #. Style input form (button and validation error)
 #. Style success message
