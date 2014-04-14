@@ -7,7 +7,7 @@ from django.contrib.auth import logout
 from django.shortcuts import redirect
 from django.template.response import TemplateResponse
 
-from .utils import get_label, get_issues
+from .utils import get_label, get_issue, get_issues
 from .forms import IssueForm
 
 
@@ -17,6 +17,13 @@ def list_issues(request):
     issues = get_issues(filter_label)
     return TemplateResponse(request, 'issues/list_issues.html',
         {'issues': issues})
+
+
+@login_required
+def issues_details(request, issue_id):
+    issue = get_issue(issue_id)
+    return TemplateResponse(request, 'issues/issue_details.html',
+        {'issue': issue})
 
 
 @login_required

@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block page_title %}
+{{ issue.title }}
+{% endblock %}
+
+{% block content %}
+
+<a href="">Previous</a>
+<a href="">Next</a>
+
+<p>
+Reported by: {{ issue.reported_by }}<br/><!-- TODO: bring in Avatar -->
+Reported on: {{ issue.date }}<br/>
+Status: asdf<br/>
+Edit button<br/>
+Comments (if any)
+</p>
+{% endblock %}

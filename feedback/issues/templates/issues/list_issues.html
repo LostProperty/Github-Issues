@@ -10,13 +10,29 @@ All Issues
         <tr>
             <th>Number</th>
             <th>Title</th>
+            <th>Date</th>
+            <th>Status</th>
         </tr>
     </thead>
     <tbody>
         {% for issue in issues %}
-        <tr>
-            <td>#{{ issue.number }}</td>
-            <td>{{ issue.title }}</td>
+        <tr class="{% cycle 'row1' 'row2' %}">
+            <td>
+                <a href="{% url 'issue_details' issue.number %}">
+                    #{{ issue.number }}
+                </a>
+            </td>
+            <td>
+                <a href="{% url 'issue_details' issue.number %}">
+                    {{ issue.title }}
+                </a>
+            </td>
+            <td>
+                {{ issue.date }}
+            </td>
+            <td>
+                {{ issue.status }}
+            </td>
         </tr>
         {% endfor %}
     </tbody>
