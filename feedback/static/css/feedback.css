@@ -11,3 +11,18 @@ th{
 .row2 {
     background-color: #f7f7e8
 }
+
+ul.errorlist{
+    list-style: none;
+    font-weight: bold;
+    color: red;
+    padding-left: 0;
+}
+
+.error input{
+    border-color: red;
+}
+
+input[type=text], input[type=password], textarea{
+    width: 500px;
+}

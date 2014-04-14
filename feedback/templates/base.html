@@ -50,13 +50,23 @@
             <li><a href="#contact">Contact</a></li>
             -->
           </ul>
+
+          <!--
+          TODO: move to css
+          TODO: only show if the user is logged in
+          TOOD: add profile page?
+          -->
+          <ul class="nav navbar-nav" style="float: right">
+            <li><a href="#">{{ user }}</a></li>
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+          </ul>
         </div><!--/.nav-collapse -->
       </div>
     </div>
 
     <div class="container">
 
-      <h1>{% block page_title %}Example Base Template{% endblock page_title %}</h1>
+      <h1>{% block page_title %}{% endblock page_title %}</h1>
 
       {% if messages %}
       <ul class="messages">
@@ -67,7 +77,6 @@
       {% endif %}
 
       {% block content %}
-        <p>Use this document as a way to quick start any new project.</p>
       {% endblock content %}
 
     </div> <!-- /container -->

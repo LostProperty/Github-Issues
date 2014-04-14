@@ -1,0 +1,11 @@
+<div class="item {% if class %} {{ class }}{% endif %}">
+    <label>
+        {{ field.label }}
+    </label>
+
+    <div class="field{% if field.errors %} error{% endif %}">
+        {{ field }}
+        {% if field.errors %} {{ field.errors }}{% endif %}
+        <p class="helptext">{{ field.help_text }}</p>
+    </div>
+</div>

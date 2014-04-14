@@ -1,7 +1,16 @@
 from django import forms
 
+from .models import Issue
 
-class IssueForm(forms.Form):
-    title = forms.CharField(max_length=500, required=True)
-    body = forms.CharField(widget=forms.Textarea(),
-        max_length=5000, required=False)
+
+class IssueForm(forms.ModelForm):
+    class Meta:
+        model = Issue
+        fields = ['title', 'body']
+
+
+class DeveloperIssueForm(forms.ModelForm):
+    class Meta:
+        model = Issue
+        fields = ['status', 'title', 'developer_title', 'body',
+            'developer_body']

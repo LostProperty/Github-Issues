@@ -1,19 +1,36 @@
 {% extends "base.html" %}
 
 {% block page_title %}
-{{ issue.title }}
+Issue: {{ issue.title }}
 {% endblock %}
 
 {% block content %}
 
+<!--
 <a href="">Previous</a>
 <a href="">Next</a>
+-->
 
 <p>
-Reported by: {{ issue.reported_by }}<br/><!-- TODO: bring in Avatar -->
-Reported on: {{ issue.date }}<br/>
-Status: asdf<br/>
-Edit button<br/>
+<!--
+Reported by: {{ issue.reported_by }}<br/>
+TODO: bring in Avatar
+-->
+<strong>Reported on:</strong> {{ issue.created_at }}<br/>
+<strong>Status:</strong> {{ issue.status }}<br/>
+<strong>Body:</strong> {{ issue.body }}</strong>
+<!--
 Comments (if any)
+-->
 </p>
+
+<!--
+If issue is new then let the client edit
+-->
+{% if user.is_superuser %}
+<a href="{% url 'edit_issue' issue.pk %}">
+    <button>Edit</button>
+</a>
+{% endif %}
+
 {% endblock %}
