@@ -4,15 +4,22 @@ from django.contrib.auth import logout
 from django.shortcuts import redirect, get_object_or_404
 from django.template.response import TemplateResponse
 
-from .forms import IssueForm, DeveloperIssueForm
+from .forms import IssueForm, DeveloperIssueForm, IssueStatusForm
 from .models import Issue, Status
 
 
 @login_required
 def list_issues(request):
-    issues = Issue.objects.all()
+    status_id = request.GET.get('status', False)
+    if status_id: # TODO: check is int and is_integer(status_id):
+        status = get_object_or_404(Status, pk=status_id)
+        issues = Issue.objects.filter(status=status)
+    else:
+        issues = Issue.objects.all()
+    status_form = IssueStatusForm(request.GET)
+
     return TemplateResponse(request, 'issues/list_issues.html',
-        {'issues': issues})
+        {'issues': issues, 'status_form': status_form})
 
 
 @login_required

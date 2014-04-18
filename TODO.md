@@ -1,14 +1,12 @@
 # TODO
 
 ## STORY: as a client I want to add a new issue
- - style success message
  - highlight page in navigation
  - Allow image upload
 
 
 ## STORY - as a client I want to see all my issues and their status
  - script to pull updates from Github
- - UI to filter on issues status
  - sort table?
 
 ## STORY - as a client I want to edit issues (just new)
@@ -26,6 +24,7 @@
  - link form Github to Feedback issue
 
 ## Backlog
+ - pagination
  - created_by user and modified_by user field, show created by in table
  - next/previous link when viewing issues
  - client priority

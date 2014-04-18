@@ -9,6 +9,12 @@ class IssueForm(forms.ModelForm):
         fields = ['title', 'body']
 
 
+class IssueStatusForm(forms.ModelForm):
+    class Meta:
+        model = Issue
+        fields = ['status']
+
+
 class DeveloperIssueForm(forms.ModelForm):
     class Meta:
         model = Issue

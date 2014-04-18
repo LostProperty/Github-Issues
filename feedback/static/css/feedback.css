@@ -1,4 +1,4 @@
-/*! project specific CSS goes here. */
+/* Table styling */
 
 td, th{
     padding: 10px;
@@ -12,7 +12,9 @@ th{
     background-color: #f7f7e8
 }
 
-ul.errorlist{
+/* Form styling */
+
+.errorlist{
     list-style: none;
     font-weight: bold;
     color: red;
@@ -25,4 +27,20 @@ ul.errorlist{
 
 input[type=text], input[type=password], textarea{
     width: 500px;
+}
+
+/* Flash message styling */
+
+.messages{
+    padding-left: 0;
+    list-style: none;
+    border: 1px dashed gray;
+}
+
+.messages li{
+    padding: 15px;
+}
+
+.success{
+    background-color: #8cff84;
 }
