@@ -1,5 +1,9 @@
 # TODO
 
+## Priority
+ - Fixture for status
+ - fix tests
+
 ## STORY: as a client I want to add a new issue
  - highlight page in navigation
  - Allow image upload
@@ -11,7 +15,7 @@
 
 ## STORY - as a client I want to edit issues (just new)
 
-## STORY - as a client I want to be able to delete a new issue
+## STORY - as a client I want to be able to delete a new issue (give archive instead)
 
 ***
 
@@ -25,6 +29,7 @@
 
 ## Backlog
  - pagination
+ - keep filter on session
  - created_by user and modified_by user field, show created by in table
  - next/previous link when viewing issues
  - client priority
@@ -32,9 +37,6 @@
  - archive functionality
  - write tests for DB and dummy backend
  - Add support/feedback page
- - Add logout in top navigation
- - Style input form (button and validation error)
- - Delete (archive) issue
  - Hover colour on issue
  - LP branding (colours, header)
  - Icons for status
@@ -44,6 +46,8 @@
  - Sort table by clicking on titles
  - After login redirect to next location
  - Password reminder (ses for email sending)
+ - Set users project in their profile
+ - Let developer switch project
 
 ## Housekeeping
  - Use SASS for CSS
