@@ -12,3 +12,5 @@
 -   fields: {name: Closed}
     model: issues.status
     pk: 4
+# TODO: add modified status
+# TODO: add re-opened status
