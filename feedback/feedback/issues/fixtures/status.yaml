@@ -1,0 +1,14 @@
+# Created with:
+# django-admin.py dumpdata issues.status --format=yaml --indent=4 > status.yaml
+-   fields: {name: New}
+    model: issues.status
+    pk: 1
+-   fields: {name: Accepted}
+    model: issues.status
+    pk: 2
+-   fields: {name: To discuss}
+    model: issues.status
+    pk: 3
+-   fields: {name: Closed}
+    model: issues.status
+    pk: 4

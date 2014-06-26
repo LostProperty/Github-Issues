@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block page_title %}
-Issue: {{ issue.title }}
+{{ issue.title }}
 {% endblock %}
 
 {% block content %}
@@ -24,13 +24,22 @@ Comments (if any)
 -->
 </p>
 
-<!--
-If issue is new then let the client edit
--->
-{% if user.is_superuser %}
-<a href="{% url 'edit_issue' issue.pk %}">
-    <button>Edit</button>
-</a>
+{% if issue.status.name == 'New' %}
+    {% if request.user.is_staff %}
+        <form id="issue-discuss" method="post">{% csrf_token %}
+            <input type="submit" value="Needs Dicussion" />
+            <input type="hidden" value="3" name="status" />
+        </form>
+
+        <form id="issue-accept" method="post">{% csrf_token %}
+            <input class="priority" type="submit" value="Accept" />
+            <input type="hidden" value="2" name="status" />
+        </form>
+    {% else %}
+        <a href="{% url 'edit_issue' issue.pk %}">
+            <button>Edit</button>
+        </a>
+    {% endif %}
 {% endif %}
 
 {% endblock %}

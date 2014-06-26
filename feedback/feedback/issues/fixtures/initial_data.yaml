@@ -1,0 +1,44 @@
+# Status
+-   fields: {name: New}
+    model: issues.status
+    pk: 1
+-   fields: {name: Accepted}
+    model: issues.status
+    pk: 2
+-   fields: {name: To discuss}
+    model: issues.status
+    pk: 3
+-   fields: {name: Closed}
+    model: issues.status
+    pk: 4
+# Users
+-   fields:
+        date_joined: 2014-03-04 16:32:56+00:00
+        email: rach@lostpropertyhq.com
+        first_name: ''
+        groups: []
+        is_active: true
+        is_staff: true
+        is_superuser: true
+        last_login: 2014-06-26 11:22:33.715092+00:00
+        last_name: ''
+        password: pbkdf2_sha256$12000$3G45IDx04l34$D/Pxv1/+iJNfQYlXKSKqhxkAUMbaCszXYTXyhblP9gQ=
+        user_permissions: []
+        username: Rach
+    model: auth.user
+    pk: 1
+-   fields:
+        date_joined: 2014-04-18 21:07:58+00:00
+        email: kathrin@catinaflat.com
+        first_name: ''
+        groups: []
+        is_active: true
+        is_staff: false
+        is_superuser: false
+        last_login: 2014-06-26 11:22:08.980999+00:00
+        last_name: ''
+        password: pbkdf2_sha256$12000$CnOSMtgIywfV$6WN1sxcdaacj87bBjQRFuBrMP61vvtWfdAclc2Im0Pc=
+        user_permissions: []
+        username: Kathrin
+    model: auth.user
+    pk: 2
