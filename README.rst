@@ -12,7 +12,7 @@ Is you are accessing a private repo you will need to set your Github password as
     export GITHUB_PASSWORD='your_github_password'
     export GITHUB_USER='your_github_username'
 
-It appears the user needs write access to your repositry in order for them to be able to write issues with labels.
+It appears the user needs write access to your repository in order for them to be able to write issues with labels.
 
 Create database and role.
 ::
@@ -33,6 +33,18 @@ or::
        settings default to using password-less connections. You may need to
        create a different settings module or adjust pg_hba.conf to allow
        connection without passwords
+
+
+Install the application in develop mode.
+::
+
+    python setup.py develop
+
+Set the ``DJANGO_SETTINGS_MODULE`` env var.
+::
+
+    export DJANGO_SETTINGS_MODULE=feedback.settings.local
+
 
 Now sync the DB
 ::
