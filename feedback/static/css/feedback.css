@@ -29,6 +29,17 @@ input[type=text], input[type=password], textarea{
     width: 500px;
 }
 
+.issue-accept-controls{
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px;
+}
+
+.issue-accept-controls form{
+    float: left;
+    padding: 5px;
+}
+
 /* Flash message styling */
 
 .messages{

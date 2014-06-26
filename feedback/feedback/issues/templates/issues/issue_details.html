@@ -26,15 +26,16 @@ Comments (if any)
 
 {% if issue.status.name == 'New' %}
     {% if request.user.is_staff %}
-        <form id="issue-discuss" method="post">{% csrf_token %}
-            <input type="submit" value="Needs Dicussion" />
-            <input type="hidden" value="3" name="status" />
-        </form>
+        <div class="issue-accept-controls">
+            <form method="post">{% csrf_token %}
+                <input type="submit" value="Needs Dicussion" class="btn-lg btn-primary" />
+            </form>
 
-        <form id="issue-accept" method="post">{% csrf_token %}
-            <input class="priority" type="submit" value="Accept" />
-            <input type="hidden" value="2" name="status" />
-        </form>
+            <form method="post">{% csrf_token %}
+                <input type="submit" value="Accept" class="btn-lg btn-success" />
+                <input type="hidden" value="2" name="status" />
+            </form>
+        </div>
     {% else %}
         <a href="{% url 'edit_issue' issue.pk %}">
             <button>Edit</button>
