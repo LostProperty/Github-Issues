@@ -28,6 +28,7 @@ Comments (if any)
     {% if request.user.is_staff %}
         <div class="issue-accept-controls">
             <form method="post">{% csrf_token %}
+                <input type="hidden" value="3" name="status" />
                 <input type="submit" value="Needs Dicussion" class="btn-lg btn-primary" />
             </form>
 

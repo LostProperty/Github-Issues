@@ -1,28 +1,23 @@
 from django.db import models
 
-# from django_extensions.db.fields import (CreationDateTimeField,
-#                                          ModificationDateTimeField)
+from django_extensions.db.fields import (CreationDateTimeField,
+                                          ModificationDateTimeField)
 
 
-# class TimeStampedModel(models.Model):
-#     created_at = CreationDateTimeField()
-#     updated_at = ModificationDateTimeField()
+class TimeStampedModel(models.Model):
+    created_at = CreationDateTimeField()
+    updated_at = ModificationDateTimeField()
 
-#     class Meta:
-#         abstract = True
+    class Meta:
+        abstract = True
 
 
-#class Issue(TimeStampedModel):
-class Issue(models.Model):
+class Issue(TimeStampedModel):
     title = models.CharField(max_length=140)
     developer_title = models.CharField(max_length=140, null=True, blank=True)
     body = models.TextField(null=True, blank=True)
     developer_body = models.TextField(null=True, blank=True)
     issue_tracker_id = models.IntegerField(null=True, blank=True)
-
-    # System fields switch to use TimestampedModel when I have internet access
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
     status = models.ForeignKey('Status')
 
     @property
