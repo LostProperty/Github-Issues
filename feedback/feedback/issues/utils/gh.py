@@ -41,9 +41,7 @@ def sync_from_github():
     PyGithub only returns open issues and we just want to hit the API once per
     call
     """
-    # TODO: move this to model to simplify code
-    accepted_issue_ids = set(
-        Issue.objects.filter(status_id=2, issue_tracker_id__isnull=False)
+    accepted_issue_ids = set(Issue.objects.get_accepted_issues()
         .values_list('issue_tracker_id', flat=True))
     open_issue_ids = set()
 

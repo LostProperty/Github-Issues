@@ -12,6 +12,14 @@ class TimeStampedModel(models.Model):
         abstract = True
 
 
+class IssueManager(models.Manager):
+    def get_accepted_issues(self):
+        """
+        Get accepted issues with Github issues
+        """
+        return self.filter(status_id=2, issue_tracker_id__isnull=False)
+
+
 class Issue(TimeStampedModel):
     title = models.CharField(max_length=140)
     developer_title = models.CharField(max_length=140, null=True, blank=True)
@@ -19,6 +27,7 @@ class Issue(TimeStampedModel):
     developer_body = models.TextField(null=True, blank=True)
     issue_tracker_id = models.IntegerField(null=True, blank=True)
     status = models.ForeignKey('Status')
+    objects = IssueManager()
 
     @property
     def number(self):
