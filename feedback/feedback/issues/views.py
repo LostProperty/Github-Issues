@@ -23,7 +23,7 @@ def list_issues(request):
 
 
 @login_required
-def issues_details(request, issue_id):
+def issue_details(request, issue_id):
     issue = get_object_or_404(Issue, pk=issue_id)
     if request.method == 'POST':
         # TODO: check user is allowed to set issue to status given (and status is valid)
@@ -42,7 +42,8 @@ def add_issue(request):
             issue = form.save(commit=False)
             issue.status = Status.objects.get(name='New')
             issue.save()
-            messages.success(request, 'Issue successfully created')
+            messages.success(request, 'Issue successfully created',
+                fail_silently=True) # for py.test
             return redirect('list_issues')
     else:
         form = IssueForm()
@@ -56,7 +57,8 @@ def edit_issue(request, issue_id):
         form = IssueForm(request.POST, instance=issue)
         if form.is_valid():
             issue = form.save()
-            messages.success(request, 'Issue successfully updated')
+            messages.success(request, 'Issue successfully updated',
+                fail_silently=True) # for py.test
             return redirect('list_issues')
     else:
         form = IssueForm(instance=issue)

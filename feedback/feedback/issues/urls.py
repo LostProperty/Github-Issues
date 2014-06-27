@@ -2,13 +2,13 @@ from django.conf.urls import patterns, url
 from django.contrib.auth.views import login
 
 from .views import (list_issues, add_issue, edit_issue, logout_view,
-    issues_details)
+    issue_details)
 
 
 urlpatterns = patterns(
     '',
     url(r'^$', list_issues, name='list_issues'),
-    url(r'^issue/(?P<issue_id>\d+)$', issues_details,
+    url(r'^issue/(?P<issue_id>\d+)$', issue_details,
         name='issue_details'),
     url(r'^issue/edit/(?P<issue_id>\d+)$', edit_issue,
         name='edit_issue'),
