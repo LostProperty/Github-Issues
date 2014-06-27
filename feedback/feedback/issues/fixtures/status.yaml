@@ -1,5 +1,5 @@
 # Created with:
-# django-admin.py dumpdata issues.status --format=yaml --indent=4 > status.yaml
+# django-admin.py dumpdata issues.status --format=yaml --indent=4 > feedback/issues/fixtures/status.yaml
 -   fields: {name: New}
     model: issues.status
     pk: 1

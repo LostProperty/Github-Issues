@@ -20,6 +20,7 @@ All Issues
             <th>Title</th>
             <th>Date</th>
             <th>Status</th>
+            <th>Priority</th>
         </tr>
     </thead>
     <tbody>
@@ -40,6 +41,9 @@ All Issues
             </td>
             <td>
                 {{ issue.status }}
+            </td>
+            <td>
+                {{ issue.priority }}
             </td>
         </tr>
         {% endfor %}

@@ -1,5 +1,5 @@
 # Created with
-# django-admin.py dumpdata auth.User --format=yaml --indent=4 > users.yaml
+# django-admin.py dumpdata auth.User --format=yaml --indent=4 > feedback/issues/fixtures/users.yaml
 -   fields:
         date_joined: 2014-03-04 16:32:56+00:00
         email: rach@lostpropertyhq.com

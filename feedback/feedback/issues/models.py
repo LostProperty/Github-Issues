@@ -25,6 +25,7 @@ class Issue(TimeStampedModel):
     body = models.TextField(null=True, blank=True)
     issue_tracker_id = models.IntegerField(null=True, blank=True)
     status = models.ForeignKey('Status')
+    priority = models.ForeignKey(to='Priority', default=1)
     objects = IssueManager()
 
     @property
@@ -35,7 +36,17 @@ class Issue(TimeStampedModel):
         return self.title
 
     class Meta:
-        ordering = ('status', 'created_at')
+        ordering = ('status', '-priority', '-created_at')
+
+
+class Priority(models.Model):
+    name = models.CharField(max_length=20)
+
+    def __unicode__(self):
+        return self.name
+
+    class Meta:
+        verbose_name_plural = 'Priority'
 
 
 class Status(models.Model):

@@ -42,3 +42,13 @@
         username: Kathrin
     model: auth.user
     pk: 2
+# Priority levels
+-   fields: {name: low}
+    model: issues.priority
+    pk: 1
+-   fields: {name: normal}
+    model: issues.priority
+    pk: 2
+-   fields: {name: high}
+    model: issues.priority
+    pk: 3

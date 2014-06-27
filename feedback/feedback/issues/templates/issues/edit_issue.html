@@ -6,11 +6,9 @@ Edit Issue
 
 {% block content %}
 <form method="post">{% csrf_token %}
-    {% include 'partials/form_field.html' with field=form.status %}
     {% include 'partials/form_field.html' with field=form.title %}
-    {% include 'partials/form_field.html' with field=form.developer_title %}
+    {% include 'partials/form_field.html' with field=form.priority %}
     {% include 'partials/form_field.html' with field=form.body %}
-    {% include 'partials/form_field.html' with field=form.developer_body %}
     <input type="submit" value="Submit" />
 </form>
 {% endblock %}
