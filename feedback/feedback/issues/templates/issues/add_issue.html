@@ -5,9 +5,10 @@ Add Issue
 {% endblock %}
 
 {% block content %}
-<form method="post">{% csrf_token %}
+<form method="post" class="limit-width">{% csrf_token %}
     {% include 'partials/form_field.html' with field=form.title %}
+    {% include 'partials/form_field.html' with field=form.priority %}
     {% include 'partials/form_field.html' with field=form.body %}
-    <input type="submit" value="Submit" />
+    <input type="submit" value="Submit" class="btn btn-primary" />
 </form>
 {% endblock %}
