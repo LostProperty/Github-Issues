@@ -22,9 +22,7 @@ class IssueManager(models.Manager):
 
 class Issue(TimeStampedModel):
     title = models.CharField(max_length=140)
-    developer_title = models.CharField(max_length=140, null=True, blank=True)
     body = models.TextField(null=True, blank=True)
-    developer_body = models.TextField(null=True, blank=True)
     issue_tracker_id = models.IntegerField(null=True, blank=True)
     status = models.ForeignKey('Status')
     objects = IssueManager()

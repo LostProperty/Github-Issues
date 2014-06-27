@@ -4,7 +4,7 @@ from django.contrib.auth import logout
 from django.shortcuts import redirect, get_object_or_404
 from django.template.response import TemplateResponse
 
-from .forms import IssueForm, DeveloperIssueForm, IssueStatusForm
+from .forms import IssueForm, IssueStatusForm
 from .models import Issue, Status
 
 
@@ -42,14 +42,6 @@ def add_issue(request):
             issue = form.save(commit=False)
             issue.status = Status.objects.get(name='New')
             issue.save()
-            # TODO: abastract the use of Github here
-            # github = Github(settings.GITHUB_USER, settings.GITHUB_PASSWORD)
-            # github_repo = github.get_repo(settings.ISSUES_REPO)
-            # label = get_label(github_repo, settings.ISSUES_LABEL)
-            # github_repo.create_issue(form.cleaned_data['title'],
-            #     form.cleaned_data['body'],
-            #     labels=[label])
-            # TODO: link back to issue (once we have an view/edit page)
             messages.success(request, 'Issue successfully created')
             return redirect('list_issues')
     else:
@@ -57,18 +49,17 @@ def add_issue(request):
     return TemplateResponse(request, 'issues/add_issue.html', {'form': form})
 
 
-# TODO: different form for client
 @login_required
 def edit_issue(request, issue_id):
     issue = get_object_or_404(Issue, pk=issue_id)
     if request.method == 'POST':
-        form = DeveloperIssueForm(request.POST, instance=issue)
+        form = IssueForm(request.POST, instance=issue)
         if form.is_valid():
             issue = form.save()
             messages.success(request, 'Issue successfully updated')
             return redirect('list_issues')
     else:
-        form = DeveloperIssueForm(instance=issue)
+        form = IssueForm(instance=issue)
     return TemplateResponse(request, 'issues/edit_issue.html',
         {'form': form, 'issue': issue})
 
