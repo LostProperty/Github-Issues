@@ -10,10 +10,10 @@ from .models import Issue, Status
 
 @login_required
 def list_issues(request):
-    status_id = request.GET.get('status', False)
-    if status_id: # TODO: check is int and is_integer(status_id):
-        status = get_object_or_404(Status, pk=status_id)
-        issues = Issue.objects.filter(status=status)
+    status_ids = request.GET.getlist('status', False)
+    # TODO: validate the ids
+    if status_ids:
+        issues = Issue.objects.filter(status__in=status_ids)
     else:
         issues = Issue.objects.all()
     status_form = IssueStatusForm(request.GET)

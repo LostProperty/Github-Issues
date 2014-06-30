@@ -1,6 +1,6 @@
 from django import forms
 
-from .models import Issue
+from .models import Issue, Status
 
 
 class bootStrapModelForm(forms.ModelForm):
@@ -16,10 +16,12 @@ class IssueForm(bootStrapModelForm):
         fields = ['title', 'priority', 'body']
 
 
-class IssueStatusForm(bootStrapModelForm):
+class IssueStatusForm(forms.ModelForm):
     """
     Used for filtering issues on the list issues page
     """
+    status = forms.ModelMultipleChoiceField(queryset=Status.objects.all(),
+        widget=forms.CheckboxSelectMultiple())
     class Meta:
         model = Issue
         fields = ['status']

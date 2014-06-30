@@ -1,1 +1,3 @@
-/* Project specific Javascript goes here. */
+$('#filter-status-form').change(function() {
+    $(this).submit();
+});

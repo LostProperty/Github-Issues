@@ -1,15 +1,22 @@
-/* Table styling */
+/* Headings */
+
+h1{
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Table */
 
 td, th{
     padding: 10px;
 }
 
 th{
-    background-color: #cecec4;
+    background-color: #dddddd;
 }
 
 .row2 {
-    background-color: #f7f7e8
+    background-color: #f2f4f7;
 }
 
 /* Form styling */
@@ -42,6 +49,23 @@ input[type=text], input[type=password], textarea{
 .issue-accept-controls form{
     float: left;
     padding: 5px;
+}
+
+#filter-status{
+    float: left;
+    padding-right: 30px;
+}
+
+#filter-status ul{
+    padding-left: 0;
+    list-style: none;
+}
+
+#filter-status ul li{
+    background-color: #d8dce2;
+    padding: 10px;
+    border-radius: 15px;
+    margin: 0 0 10px 0;
 }
 
 /* Flash message styling */
