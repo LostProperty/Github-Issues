@@ -26,6 +26,8 @@ class Issue(TimeStampedModel):
     issue_tracker_id = models.IntegerField(null=True, blank=True)
     status = models.ForeignKey('Status')
     priority = models.ForeignKey(to='Priority', default=1)
+    attachment = models.FileField(upload_to='attachments', blank=True,
+        null=True)
     objects = IssueManager()
 
     @property

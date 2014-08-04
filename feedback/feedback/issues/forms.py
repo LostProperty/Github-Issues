@@ -13,7 +13,7 @@ class bootStrapModelForm(forms.ModelForm):
 class IssueForm(bootStrapModelForm):
     class Meta:
         model = Issue
-        fields = ['title', 'priority', 'body']
+        fields = ['title', 'priority', 'body', 'attachment']
 
 
 class IssueStatusForm(forms.ModelForm):

@@ -43,7 +43,7 @@ def issue_details(request, issue_id):
 @login_required
 def add_issue(request):
     if request.method == 'POST':
-        form = IssueForm(request.POST)
+        form = IssueForm(request.POST, request.FILES)
         if form.is_valid():
             issue = form.save(commit=False)
             issue.status = Status.objects.get(name='New')
