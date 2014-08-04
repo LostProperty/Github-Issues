@@ -11,20 +11,21 @@ TODO: gray out
 -->
 {% ifnotequal False previous %}
 <span class="prev">
-    <a href="{{ previous.pk }}">Previous</a>
+    <a href="{{ previous.pk }}">&#10094; Previous</a>
 </span>
 {% else %}
-<span class="prev">Previous</span>
+<span class="prev">&#10094; Previous</span>
 {% endifnotequal %}
 
 {% ifnotequal False next %}
 <span class="next">
-    <a href="{{ next.pk }}">Next</a>
+    <a href="{{ next.pk }}">Next &#10095;</a>
 </span>
 {% else %}
-<span class="next">Next</span>
+<span class="next">Next &#10095;</span>
 {% endifnotequal %}
 
+<div class="main">
 <p>
 <!--
 Reported by: {{ issue.reported_by }}<br/>
@@ -38,6 +39,7 @@ TODO: bring in Avatar
 Comments (if any)
 -->
 </p>
+</div>
 
 {% if issue.status.name == 'New' %}
     {% if request.user.is_staff %}

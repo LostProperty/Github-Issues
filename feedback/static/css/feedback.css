@@ -83,3 +83,14 @@ input[type=text], input[type=password], textarea{
 .success{
     background-color: #b8f29d;
 }
+
+/* Next/Previous styling */
+.prev, .next{
+    font-size: 25px;
+    color: gray;
+}
+
+.next{
+    float: right;
+}
+
