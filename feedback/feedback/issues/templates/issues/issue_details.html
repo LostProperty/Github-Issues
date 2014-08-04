@@ -35,6 +35,16 @@ TODO: bring in Avatar
 <strong>Status:</strong> {{ issue.status }}<br/>
 <strong>Number:</strong> {{ issue.pk }}</strong><br/>
 <strong>Body:</strong> {{ issue.body }}</strong><br/>
+
+{% if issue.attachment %}
+<img src="{{ MEDIA_URL }}{{ issue.attachment }}" />
+{% endif %}
+
+<!--
+If attachment add a link
+If a type of image then show the image
+-->
+
 <!--
 Comments (if any)
 -->
