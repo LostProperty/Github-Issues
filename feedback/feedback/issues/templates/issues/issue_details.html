@@ -7,9 +7,23 @@
 {% block content %}
 
 <!--
-<a href="">Previous</a>
-<a href="">Next</a>
+TODO: gray out
 -->
+{% ifnotequal False previous %}
+<span class="prev">
+    <a href="{{ previous.pk }}">Previous</a>
+</span>
+{% else %}
+<span class="prev">Previous</span>
+{% endifnotequal %}
+
+{% ifnotequal False next %}
+<span class="next">
+    <a href="{{ next.pk }}">Next</a>
+</span>
+{% else %}
+<span class="next">Next</span>
+{% endifnotequal %}
 
 <p>
 <!--
@@ -18,7 +32,8 @@ TODO: bring in Avatar
 -->
 <strong>Reported on:</strong> {{ issue.created_at }}<br/>
 <strong>Status:</strong> {{ issue.status }}<br/>
-<strong>Body:</strong> {{ issue.body }}</strong>
+<strong>Number:</strong> {{ issue.pk }}</strong><br/>
+<strong>Body:</strong> {{ issue.body }}</strong><br/>
 <!--
 Comments (if any)
 -->

@@ -6,6 +6,7 @@ from django.template.response import TemplateResponse
 
 from .forms import IssueForm, IssueStatusForm
 from .models import Issue, Status
+from .models import get_next_or_prev
 
 
 @login_required
@@ -25,13 +26,18 @@ def list_issues(request):
 @login_required
 def issue_details(request, issue_id):
     issue = get_object_or_404(Issue, pk=issue_id)
+    issues = Issue.objects.all()
+    next = get_next_or_prev(issues, issue, 'next')
+    previous = get_next_or_prev(issues, issue, 'prev')
+
     if request.method == 'POST':
         # TODO: check user is allowed to set issue to status given (and status is valid)
         status = request.POST.get('status')
         issue.status_id = status
         issue.save()
+    # TODO: load up next issue
     return TemplateResponse(request, 'issues/issue_details.html',
-        {'issue': issue})
+        {'issue': issue, 'next': next, 'previous': previous})
 
 
 @login_required

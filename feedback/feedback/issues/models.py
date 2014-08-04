@@ -58,3 +58,29 @@ class Status(models.Model):
     class Meta:
         verbose_name_plural = 'Status'
         ordering = ('pk',)
+
+
+def get_next_or_prev(models, item, direction):
+    '''
+    Returns the next or previous item of
+    a query-set for 'item'.
+
+    'models' is a query-set containing all
+    items of which 'item' is a part of.
+
+    direction is 'next' or 'prev'
+
+    '''
+    getit = False
+    if direction == 'prev':
+        models = models.reverse()
+    for m in models:
+        if getit:
+            return m
+        if item == m:
+            getit = True
+    # if getit:
+    #     # This would happen when the last
+    #     # item made getit True
+    #     return models[0]
+    return False
