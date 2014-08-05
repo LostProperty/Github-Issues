@@ -25,7 +25,7 @@ def list_issues(request):
         {'issues': issues, 'status_form': status_form})
 
 
-# TODO: move to utils
+# TODO: move to utils files
 def is_image_file(file_name):
     """
     Simplistic check to see if file is an image
@@ -71,6 +71,7 @@ def add_issue(request):
         if form.is_valid():
             issue = form.save(commit=False)
             issue.status = Status.objects.get(name='New')
+            issue.reported_by = request.user
             issue.save()
             messages.success(request, 'Issue successfully created',
                 fail_silently=True) # for py.test

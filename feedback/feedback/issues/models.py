@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 from django_extensions.db.fields import (CreationDateTimeField,
                                           ModificationDateTimeField)
@@ -28,6 +29,7 @@ class Issue(TimeStampedModel):
     priority = models.ForeignKey(to='Priority', default=1)
     attachment = models.FileField(upload_to='attachments', blank=True,
         null=True)
+    reported_by = models.ForeignKey(User)
     objects = IssueManager()
 
     @property
