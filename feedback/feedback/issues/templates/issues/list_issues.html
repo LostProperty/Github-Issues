@@ -50,4 +50,20 @@ All Issues
     </tbody>
 </table>
 
+<div class="pagination">
+    <span class="step-links">
+        {% if issues.has_previous %}
+            <a href="?page={{ issues.previous_page_number }}">&#10094; Previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ issues.number }} of {{ issues.paginator.num_pages }}.
+        </span>
+
+        {% if issues.has_next %}
+            <a href="?page={{ issues.next_page_number }}">Next &#10095;</a>
+        {% endif %}
+    </span>
+</div>
+
 {% endblock %}

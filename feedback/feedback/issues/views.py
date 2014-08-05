@@ -1,5 +1,6 @@
 import os
 
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
@@ -16,10 +17,20 @@ def list_issues(request):
     status_ids = request.GET.getlist('status', False)
     # TODO: validate the ids
     if status_ids:
-        issues = Issue.objects.filter(status__in=status_ids)
+        issue_list = Issue.objects.filter(status__in=status_ids)
     else:
-        issues = Issue.objects.all()
+        issue_list = Issue.objects.all()
     status_form = IssueStatusForm(request.GET)
+
+    # pagination
+    paginator = Paginator(issue_list, 10)
+    page = request.GET.get('page')
+    try:
+        issues = paginator.page(page)
+    except PageNotAnInteger:
+        issues = paginator.page(1)
+    except EmptyPage:
+        issues = paginator.page(paginator.num_pages)
 
     return TemplateResponse(request, 'issues/list_issues.html',
         {'issues': issues, 'status_form': status_form})
