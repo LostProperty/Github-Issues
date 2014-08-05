@@ -1,3 +1,5 @@
+import os
+
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
@@ -23,21 +25,41 @@ def list_issues(request):
         {'issues': issues, 'status_form': status_form})
 
 
+# TODO: move to utils
+def is_image_file(file_name):
+    """
+    Simplistic check to see if file is an image
+    """
+    image_extensions = [
+        u'jpg',
+        u'jpeg',
+        u'png',
+        u'gif',
+    ]
+    extension = os.path.splitext(file_name)[1]
+    extension = extension.lower()[1:]
+    return extension in image_extensions
+
+
 @login_required
 def issue_details(request, issue_id):
     issue = get_object_or_404(Issue, pk=issue_id)
     issues = Issue.objects.all()
     next = get_next_or_prev(issues, issue, 'next')
     previous = get_next_or_prev(issues, issue, 'prev')
+    attached_image = is_image_file(issue.attachment.name)
 
     if request.method == 'POST':
         # TODO: check user is allowed to set issue to status given (and status is valid)
         status = request.POST.get('status')
         issue.status_id = status
         issue.save()
-    # TODO: load up next issue
+        # TODO: load up next issue? User test this
     return TemplateResponse(request, 'issues/issue_details.html',
-        {'issue': issue, 'next': next, 'previous': previous})
+        {'issue': issue,
+        'next': next,
+        'previous': previous,
+        'attached_image': attached_image})
 
 
 @login_required

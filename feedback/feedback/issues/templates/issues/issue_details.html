@@ -36,14 +36,17 @@ TODO: bring in Avatar
 <strong>Number:</strong> {{ issue.pk }}</strong><br/>
 <strong>Body:</strong> {{ issue.body }}</strong><br/>
 
-{% if issue.attachment %}
-<img src="{{ MEDIA_URL }}{{ issue.attachment }}" />
-{% endif %}
-
 <!--
-If attachment add a link
-If a type of image then show the image
+TODO:
+If not an image show the attachment logo
 -->
+{% if issue.attachment %}
+    {% ifequal True attached_image %}
+    <img src="{{ MEDIA_URL }}{{ issue.attachment }}" />
+    {% else %}
+    <p><a target="_launch" href="{{ MEDIA_URL }}{{ issue.attachment }}">{{ issue.attachment }}</a></p>
+    {% endifequal %}
+{% endif %}
 
 <!--
 Comments (if any)
