@@ -84,7 +84,8 @@ input[type=text], input[type=password], textarea{
     background-color: #b8f29d;
 }
 
-/* Next/Previous styling */
+
+/* Issue styling */
 .prev, .next{
     font-size: 25px;
     color: gray;
@@ -93,4 +94,9 @@ input[type=text], input[type=password], textarea{
 .next{
     float: right;
 }
+
+.issue-image{
+    max-width: 800px;
+}
+
 
