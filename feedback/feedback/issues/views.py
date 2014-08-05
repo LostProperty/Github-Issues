@@ -84,7 +84,7 @@ def add_issue(request):
 def edit_issue(request, issue_id):
     issue = get_object_or_404(Issue, pk=issue_id)
     if request.method == 'POST':
-        form = IssueForm(request.POST, instance=issue)
+        form = IssueForm(request.POST, request.FILES, instance=issue)
         if form.is_valid():
             issue = form.save()
             messages.success(request, 'Issue successfully updated',

@@ -5,10 +5,11 @@ Edit Issue
 {% endblock %}
 
 {% block content %}
-<form method="post" class="limit-width">{% csrf_token %}
+<form method="post" class="limit-width" enctype="multipart/form-data">{% csrf_token %}
     {% include 'partials/form_field.html' with field=form.title %}
     {% include 'partials/form_field.html' with field=form.priority %}
     {% include 'partials/form_field.html' with field=form.body %}
+    {% include 'partials/form_field.html' with field=form.attachment %}
     <input type="submit" value="Submit" class="btn btn-primary" />
 </form>
 {% endblock %}

@@ -28,10 +28,9 @@ TODO: gray out
 <div class="main">
 <p>
 <!--
-Reported by: {{ issue.reported_by }}<br/>
 TODO: bring in Avatar
 -->
-<strong>Reported on:</strong> {{ issue.created_at }}<br/>
+<strong>Reported on:</strong> {{ issue.created_at }} by {{ issue.reported_by }}<br/>
 <strong>Status:</strong> {{ issue.status }}<br/>
 <strong>Number:</strong> {{ issue.pk }}</strong><br/>
 <strong>Body:</strong> {{ issue.body }}</strong><br/>
