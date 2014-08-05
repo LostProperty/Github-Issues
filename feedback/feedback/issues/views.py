@@ -30,6 +30,8 @@ def is_image_file(file_name):
     """
     Simplistic check to see if file is an image
     """
+    if not file_name:
+        return False
     image_extensions = [
         u'jpg',
         u'jpeg',

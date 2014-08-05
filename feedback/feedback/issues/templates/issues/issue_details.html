@@ -44,7 +44,10 @@ If not an image show the attachment logo
     {% ifequal True attached_image %}
     <img class="issue-image" src="{{ MEDIA_URL }}{{ issue.attachment }}" />
     {% else %}
-    <p><a target="_launch" href="{{ MEDIA_URL }}{{ issue.attachment }}">{{ issue.attachment }}</a></p>
+    <a target="_launch" href="{{ MEDIA_URL }}{{ issue.attachment }}">
+        <img width="30px" src="{{ STATIC_URL }}images/paperclip.png" />
+        {{ issue.attachment }}
+    </a>
     {% endifequal %}
 {% endif %}
 
