@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load easy_tag %}
 
 {% block page_title %}
 All Issues
@@ -53,7 +54,7 @@ All Issues
 <div class="pagination">
     <span class="step-links">
         {% if issues.has_previous %}
-            <a href="?page={{ issues.previous_page_number }}">&#10094; Previous</a>
+            <a href="{% append_to_get page=issues.previous_page_number %}">&#10094; Previous</a>
         {% endif %}
 
         <span class="current">
@@ -61,7 +62,7 @@ All Issues
         </span>
 
         {% if issues.has_next %}
-            <a href="?page={{ issues.next_page_number }}">Next &#10095;</a>
+            <a href="{% append_to_get page=issues.next_page_number %}">Next &#10095;</a>
         {% endif %}
     </span>
 </div>
