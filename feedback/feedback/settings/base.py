@@ -262,9 +262,15 @@ ISSUES_BACKEND = 'github'
 
 ########## GITHUB ISSUES CONFIGURATION
 
-#SOCIAL_AUTH_TWITTER_KEY = 'foobar'
-#SOCIAL_AUTH_TWITTER_SECRET = 'bazqux'
+SOCIAL_AUTH_GITHUB_KEY = 'af784628317f37b22dba'
+SOCIAL_AUTH_GITHUB_SECRET = '92fba683d75f3dc05ca653e90e6388b82e122251'
 
 AUTHENTICATION_BACKENDS = (
-    'social_auth.backends.contrib.github.GithubBackend',
+    #'social_auth.backends.contrib.github',
+    #social.backends.twitter.TwitterOAuth
+    #social.backends.twitter.TwitterOAuth
+    'social.backends.github.GithubOAuth2',
+    'django.contrib.auth.backends.ModelBackend', # Needed?
 )
+
+#LOGIN_REDIRECT_URL = '/members'

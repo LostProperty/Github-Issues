@@ -24,5 +24,16 @@ Login
     <input type="submit" value="Login" class="btn btn-primary"/>
 </form>
 
-<h1>TODO: connect to github</h1>
+<p>
+    <a href="{% url 'social:begin' 'github' %}?next={{ request.path }}">Login with Github</a>
+</p>
+
+ <p>
+   {% if user and not user.is_anonymous %}
+     Hello {{ user.get_full_name|default:user.username }}!
+   {% else %}
+     I don’t think we’ve met before.
+   {% endif %}
+ </p>
+
 {% endblock %}
