@@ -141,6 +141,8 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.tz',
     'django.contrib.messages.context_processors.messages',
     'django.core.context_processors.request',
+    'social.apps.django_app.context_processors.backends',
+    'social.apps.django_app.context_processors.login_redirect',
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#template-loaders
@@ -242,16 +244,10 @@ LOGGING = {
 WSGI_APPLICATION = '%s.wsgi.application' % SITE_NAME
 ########## END WSGI CONFIGURATION
 
-
-########## SOUTH CONFIGURATION
-# See: http://south.readthedocs.org/en/latest/installation.html#configuring-your-django-installation
 INSTALLED_APPS += (
     # Database migration helpers:
-    'south',
+    'social.apps.django_app.default',
 )
-# Don't need to use South when setting up a test database.
-SOUTH_TESTS_MIGRATE = False
-########## END SOUTH CONFIGURATION
 
 ########## GITHUB ISSUES CONFIGURATION
 ISSUES_REPO = 'LostProperty/Feedback_demo'
@@ -266,3 +262,9 @@ ISSUES_BACKEND = 'github'
 
 ########## GITHUB ISSUES CONFIGURATION
 
+#SOCIAL_AUTH_TWITTER_KEY = 'foobar'
+#SOCIAL_AUTH_TWITTER_SECRET = 'bazqux'
+
+AUTHENTICATION_BACKENDS = (
+    'social_auth.backends.contrib.github.GithubBackend',
+)
