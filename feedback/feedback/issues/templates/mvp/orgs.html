@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load easy_tag %}
+
+{% block page_title %}
+Choose Organisation
+{% endblock %}
+
+{% block content %}
+
+<ul>
+    <li><a href="/repos">My Repos</a></li>
+    {% for org in orgs %}
+        <li><a href="/repos?org={{ org.login }}">{{ org.login }}</a></li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

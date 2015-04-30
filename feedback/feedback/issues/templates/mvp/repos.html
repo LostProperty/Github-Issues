@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load easy_tag %}
+
+{% block page_title %}
+Your Repos
+{% endblock %}
+
+{% block content %}
+
+<ul>
+{% for repo in repos %}
+    <li><a href="/export?repo={{ repo.name }}&org={{ org }}">{{ repo.name }}</a></li>
+{% endfor %}
+</ul>
+
+{% endblock %}
