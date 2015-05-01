@@ -9,15 +9,9 @@ from .mvp_views import list_repos, list_orgs, export_issues
 
 urlpatterns = patterns(
     '',
-    url(r'^$', list_issues, name='list_issues'),
     url(r'^repos$', list_repos, name='list_repos'),
-    url(r'^orgs$', list_orgs, name='list_orgs'),
+    url(r'^$', list_orgs, name='list_orgs'),
     url(r'^export$', export_issues, name='export'),
-    url(r'^issue/(?P<issue_id>\d+)$', issue_details,
-        name='issue_details'),
-    url(r'^issue/edit/(?P<issue_id>\d+)$', edit_issue,
-        name='edit_issue'),
-    url(r'^add', add_issue, name='add_issue'),
     url(r'^login$', login,
         {'template_name': 'login.html'}, name='login'),
     url(r'^logout$', logout_view, name='logout')

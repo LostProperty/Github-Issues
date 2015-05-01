@@ -45,7 +45,6 @@
           <ul class="nav navbar-nav">
             <li class="active"><a href="/">Home</a></li>
             <!--
-            <li><a href="{% url 'add_issue' %}">Add Issue</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#contact">Contact</a></li>
             -->
@@ -68,7 +67,9 @@
 
     <div class="container">
 
-      <h1>{% block page_title %}{% endblock page_title %}</h1>
+      <h1>Github Issues Export</h1>
+
+      <h4>{% block page_title %}{% endblock page_title %}</h4>
 
       {% if messages %}
       <ul class="messages">

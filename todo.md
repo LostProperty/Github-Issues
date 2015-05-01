@@ -1,0 +1,8 @@
+ - Fix for my repos
+ - Check perms. For example B-reel repos?
+ - Larger title field
+ - Bold row for headers in excel
+ - Closed issue in Excel
+ - Code clean-up (mvp.py)
+ - Tighten permissions
+ - About page

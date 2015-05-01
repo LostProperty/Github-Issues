@@ -13,14 +13,14 @@ def get_access_token(request):
 
 
 def get_github_issues(org, repo, request):
-    # https://api.github.com/repos/LostProperty/dove-ath/issues?access_token=b70e6507fdc363ae8c5be423d750620aa8b8360b
     url = '/repos/{}/{}/issues'.format(org, repo)
-    return call_github_api(url, request)
+    # TODO: order repos alphabetically
+    return call_github_api(url, get_access_token(request))
 
 
-def call_github_api(url, request):
+def call_github_api(url, access_token):
     response = requests.get('https://api.github.com{}'.format(url),
-        params={'access_token': get_access_token(request)})
+        params={'access_token': access_token})
     return response.json()
 
 
@@ -45,6 +45,17 @@ def create_excel(issues):
 
 
 @login_required
+def list_orgs(request):
+    """
+    Lists a users organisation
+    """
+    orgs = call_github_api('/user/orgs', get_access_token(request))
+    orgs = sorted(orgs, key=lambda k: k['login'])
+    # TODO: pass the repos_url to the list_repos view
+    return TemplateResponse(request, 'mvp/orgs.html', {'orgs': orgs})
+
+
+@login_required
 def list_repos(request):
     """
     List a users repos
@@ -54,23 +65,10 @@ def list_repos(request):
         url = '/user/repos'
     else:
         url = '/orgs/{}/repos'.format(org)
-    repos = call_github_api(url, request)
-    # TODO: sort repos alphabetically
+    repos = call_github_api(url, get_access_token(request))
+    repos = sorted(repos, key=lambda k: k['name'])
     return TemplateResponse(request, 'mvp/repos.html',
         {'repos': repos, 'org': org})
-
-
-@login_required
-def list_orgs(request):
-    """
-    Lists a users organisation
-    """
-    # TODO: use the get_access_token function
-    response = requests.get('https://api.github.com/user/orgs',
-        params={'access_token': get_access_token(request)})
-    orgs = response.json()
-    # TODO: pass the repos_url to the list_repos view
-    return TemplateResponse(request, 'mvp/orgs.html', {'orgs': orgs})
 
 
 @login_required
