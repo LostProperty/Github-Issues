@@ -28,9 +28,10 @@ def create_excel(issues):
     filepath = '/tmp/{}.xlsx'.format(uuid1())
     workbook = xlsxwriter.Workbook(filepath)
     worksheet = workbook.add_worksheet()
-    worksheet.write(0, 0, 'Number')
-    worksheet.write(0, 1, 'Title')
-    worksheet.write(0, 2, 'Status')
+    header_format = workbook.add_format({'bold': True})
+    worksheet.write(0, 0, 'Number', header_format)
+    worksheet.write(0, 1, 'Title', header_format)
+    worksheet.write(0, 2, 'Status', header_format)
 
     row = 1
     for issue in issues:
