@@ -1,3 +1,4 @@
+from uuid import uuid1
 import requests
 import xlsxwriter
 
@@ -24,8 +25,7 @@ def call_github_api(url, access_token):
 
 
 def create_excel(issues):
-    # TODO: should we create this in /tmp? use uuid for filename
-    filepath = 'issues.xlsx'
+    filepath = '/tmp/{}.xlsx'.format(uuid1())
     workbook = xlsxwriter.Workbook(filepath)
     worksheet = workbook.add_worksheet()
     worksheet.write(0, 0, 'Number')

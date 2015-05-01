@@ -1,4 +1,4 @@
- - Fix for my repos
+ - Create file in /tmp (or store in memory)
  - Check perms. For example B-reel repos?
  - Larger title field
  - Bold row for headers in excel
