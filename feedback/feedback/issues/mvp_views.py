@@ -27,7 +27,7 @@ def call_github_api(url, access_token):
 def create_excel(issues):
     filepath = '/tmp/{}.xlsx'.format(uuid1())
     workbook = xlsxwriter.Workbook(filepath)
-    worksheet = workbook.add_worksheet()
+    worksheet = workbook.add_worksheet('Open')
     header_format = workbook.add_format({'bold': True})
     worksheet.set_column(1, 1, 60)
     worksheet.write(0, 0, 'Number', header_format)
@@ -40,7 +40,6 @@ def create_excel(issues):
         worksheet.write(row, 1, issue['title'])
         worksheet.write(row, 2, issue['state'])
         row += 1
-    # TODO: larger field for title
     # TODO: split sheets for open and closed
     return filepath
 
@@ -52,7 +51,6 @@ def list_orgs(request):
     """
     orgs = call_github_api('/user/orgs', get_access_token(request))
     orgs = sorted(orgs, key=lambda k: k['login'])
-    # TODO: pass the repos_url to the list_repos view
     return TemplateResponse(request, 'mvp/orgs.html', {'orgs': orgs})
 
 
@@ -87,7 +85,7 @@ def export_issues(request):
     with open (filepath, 'r') as excel_file:
         data = excel_file.read()
     response = HttpResponse(data, content_type='application/vnd.ms-excel')
-    response['Content-Disposition'] = 'attachment; filename="issues.xls"'
+    response['Content-Disposition'] = 'attachment; filename="{}.xls"'.format(repo)
     return response
 
 
