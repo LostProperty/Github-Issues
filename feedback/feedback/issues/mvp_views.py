@@ -82,7 +82,6 @@ def export_issues(request):
     repo = request.GET.get('repo')
     org = request.GET.get('org')
     issues = get_github_issues(org, repo, request)
-    #import pdb; pdb.set_trace()
     filepath = create_excel(issues)
     # TODO: can we avoid writing the file and keep in memory?
     with open (filepath, 'r') as excel_file:

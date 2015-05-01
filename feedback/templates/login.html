@@ -1,39 +1,22 @@
 {% extends 'base.html' %}
 
 {% block page_title %}
-Login
+Github Issues Excel Export
 {% endblock %}
 
 {% block content %}
-{% if form.errors %}
-<p class="error message">Your username and password didn't match. Please try again.</p>
-{% endif %}
-<form class="login-form" method="post" action="{% url 'django.contrib.auth.views.login' %}">
-    {% csrf_token %}
-    <div class="input-field">
-        {{ form.username.label_tag }}
-        {{ form.username }}
-        {{ form.username.errors }}
-    </div>
-    <div class="input-field">
-        {{ form.password.label_tag }}
-        {{ form.password }}
-        {{ form.password.errors }}
-    </div>
-    <input type="hidden" name="next" value="/" />
-    <input type="submit" value="Login" class="btn btn-primary"/>
-</form>
 
+{% if user and not user.is_anonymous %}
 <p>
-    <a href="{% url 'social:begin' 'github' %}?next={{ request.path }}">Login with Github</a>
+    <!-- TODO: full repo list here -->
+    Hello {{ user.get_full_name|default:user.username }}!
 </p>
 
- <p>
-   {% if user and not user.is_anonymous %}
-     Hello {{ user.get_full_name|default:user.username }}!
-   {% else %}
-     I don’t think we’ve met before.
-   {% endif %}
- </p>
+{% else %}
+<p style="text-align:center">
+    <a href="{% url 'social:begin' 'github' %}?next=/">Login with Github</a>
+    <!-- Export Github Issues as an Excel files. -->
+</p>
+{% endif %}
 
 {% endblock %}
