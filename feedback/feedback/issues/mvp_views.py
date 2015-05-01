@@ -14,7 +14,6 @@ def get_access_token(request):
 
 def get_github_issues(org, repo, request):
     url = '/repos/{}/{}/issues'.format(org, repo)
-    # TODO: order repos alphabetically
     return call_github_api(url, get_access_token(request))
 
 
@@ -62,6 +61,7 @@ def list_repos(request):
     """
     org = request.GET.get('org')
     if org is None:
+        org = request.user.username
         url = '/user/repos'
     else:
         url = '/orgs/{}/repos'.format(org)
