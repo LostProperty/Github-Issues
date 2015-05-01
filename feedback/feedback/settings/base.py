@@ -264,6 +264,14 @@ ISSUES_BACKEND = 'github'
 
 SOCIAL_AUTH_GITHUB_KEY = 'af784628317f37b22dba'
 SOCIAL_AUTH_GITHUB_SECRET = '92fba683d75f3dc05ca653e90e6388b82e122251'
+# Can we tighten this? https://developer.github.com/v3/oauth/#scopes
+# DEFAULT_SCOPE = 'repo' #user? http://stackoverflow.com/questions/8975848/getting-private-repos-from-organization-with-github-api-v3
+SOCIAL_AUTH_GITHUB_SCOPE = ['repo']
+# SOCIAL_AUTH_GITHUB_EXTRA_ARGUMENTS = {'scope': 'repo'}
+# SOCIAL_AUTH_EXTRA_ARGUMENTS = {'scope': 'repo'}
+# EXTRA_ARGUMENTS = {'scope': 'repo'}
+
+
 
 AUTHENTICATION_BACKENDS = (
     #'social_auth.backends.contrib.github',
