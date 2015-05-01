@@ -1,7 +1,5 @@
- - Larger title field
- - Bold row for headers in excel
- - Closed issue in Excel
+ - About page
  - Code clean-up (mvp.py)
  - Tighten permissions
- - About page
+ - Run Python3?
  - Ansible
