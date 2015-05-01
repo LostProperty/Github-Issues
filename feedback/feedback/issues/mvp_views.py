@@ -29,6 +29,7 @@ def create_excel(issues):
     workbook = xlsxwriter.Workbook(filepath)
     worksheet = workbook.add_worksheet()
     header_format = workbook.add_format({'bold': True})
+    worksheet.set_column(1, 1, 60)
     worksheet.write(0, 0, 'Number', header_format)
     worksheet.write(0, 1, 'Title', header_format)
     worksheet.write(0, 2, 'Status', header_format)
