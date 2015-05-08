@@ -77,8 +77,16 @@ CACHES = {
 }
 ########## END CACHE CONFIGURATION
 
-
 ########## SECRET CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#secret-key
 SECRET_KEY = 'asdfsadasdfsadf234234234' #get_env_setting('SECRET_KEY')
 ########## END SECRET CONFIGURATION
+
+# Attempt to fix templates issues
+import os
+PROJECT_ROOT = os.path.dirname(os.path.realpath(os.path.join(__file__, '..')))
+here = lambda *x: os.path.realpath(os.path.join(PROJECT_ROOT, *x))
+
+TEMPLATE_DIRS = (
+    here('templates'),
+)
