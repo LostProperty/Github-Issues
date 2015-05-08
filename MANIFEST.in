@@ -1,1 +1,1 @@
-recursive-include feedback *
+recursive-include feedback/templates *
