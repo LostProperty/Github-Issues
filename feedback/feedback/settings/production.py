@@ -54,7 +54,17 @@ SERVER_EMAIL = EMAIL_HOST_USER
 ########## END EMAIL CONFIGURATION
 
 ########## DATABASE CONFIGURATION
-DATABASES = {}
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'feedback',
+        'PASSWORD': 'foosh4ohThaiqu', # TODO: move to environment variable
+        'USER': 'feedback',
+        'HOST': 'feedback.c7cu5t2zxzhk.eu-west-1.rds.amazonaws.com',
+        'PORT': '5432',
+        'TEST_NAME': 'feedback_test',
+    }
+}
 ########## END DATABASE CONFIGURATION
 
 
