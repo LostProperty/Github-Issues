@@ -15,7 +15,7 @@ setup(name='feedback',
       author='pete@lostpropertyhq.com',
       author_email='pete@lostpropertyhq.com',
       keywords='',
-      #package_dir={'': 'feedback'},
+      package_dir={'': 'feedback'},
       zip_safe=False,
       classifiers=['Private :: Do Not Upload'],
 )
