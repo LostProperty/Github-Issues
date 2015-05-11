@@ -19,6 +19,9 @@ def get_env_setting(setting):
         error_msg = "Set the %s env variable" % setting
         raise ImproperlyConfigured(error_msg)
 
+STATIC_ROOT = '/srv/github_issues/static/'
+MEDIA_ROOT = '/srv/github_issues/uploads/'
+
 # Tmp debug for production server
 DEBUG = True
 
