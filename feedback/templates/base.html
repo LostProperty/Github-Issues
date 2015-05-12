@@ -98,7 +98,12 @@
     <!-- place project specific Javascript in this file -->
     <script src="{% static 'js/feedback.js' %}"></script>
 
-    {% if host == "github-issues.lostpropertyhq.com" %}
+    <!--
+    host test
+    {{ request.get_host }}
+    -->
+
+    {% if request.get_host == "github-issues.lostpropertyhq.com" %}
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
