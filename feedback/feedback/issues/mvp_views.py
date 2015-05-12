@@ -9,7 +9,6 @@ from django.http import HttpResponse
 
 def get_access_token(request):
     social_auth = request.user.social_auth.get()
-    print(social_auth.extra_data['access_token'])
     return social_auth.extra_data['access_token']
 
 
