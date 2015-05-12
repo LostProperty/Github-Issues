@@ -12,7 +12,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'feedback',
-        'PASSWORD': 'foosh4ohThaiqu', # TODO: move to environment variable
+        'PASSWORD': environ.get('DB_PASSWORD'),
         'USER': 'feedback',
         'HOST': 'feedback.c7cu5t2zxzhk.eu-west-1.rds.amazonaws.com',
         'PORT': '5432',
