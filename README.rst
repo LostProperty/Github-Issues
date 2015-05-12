@@ -2,7 +2,7 @@
 Github Issues
 =============
 
-Source code for http://github-issues.lostpropertyhq.com let's users log-in with their Github account and export repo issues as excel documents.
+Source code for http://github-issues.lostpropertyhq.com lets users log-in with their Github account and export repo issues as excel documents.
 
 Getting set-up for development
 ------------------------------
