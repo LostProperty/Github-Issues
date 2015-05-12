@@ -1,8 +1,8 @@
-========
-Feedback
-========
+=============
+Github Issues
+=============
 
-Let clients give feedback using Github issues, without them having access to all issues and source code.
+Source code for http://github-issues.lostpropertyhq.com let's users log-in with their Github account and export the issues for their repos as excel documents.
 
 Getting set-up for development
 ------------------------------
