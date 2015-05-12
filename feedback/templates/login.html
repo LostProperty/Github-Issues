@@ -9,10 +9,13 @@
 </p>
 
 {% else %}
-<p style="text-align:center">
-    <a href="{% url 'social:begin' 'github' %}?next=/">Login with Github</a>
-    <!-- Export Github Issues as an Excel files. -->
-</p>
+<div style="width: 300px; margin-left: auto; margin-right: auto;">
+    <ol>
+        <li><a href="{% url 'social:begin' 'github' %}?next=/">Login with Github</a></li>
+        <li>Select your organisation and repositry</li>
+        <li>Export issues as Excel</li>
+    </ol>
+</div>
 {% endif %}
 
 {% endblock %}
