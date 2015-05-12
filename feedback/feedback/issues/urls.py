@@ -1,9 +1,9 @@
 from django.conf import settings
 from django.conf.urls import patterns, url
 from django.contrib.auth.views import login
+from django.views.generic import TemplateView
 
-from .views import (list_issues, add_issue, edit_issue, logout_view,
-    issue_details)
+from .views import (list_issues, add_issue, edit_issue, logout_view)
 from .mvp_views import list_repos, list_orgs, export_issues
 
 
@@ -14,7 +14,8 @@ urlpatterns = patterns(
     url(r'^export$', export_issues, name='export'),
     url(r'^login$', login,
         {'template_name': 'login.html'}, name='login'),
-    url(r'^logout$', logout_view, name='logout')
+    url(r'^logout$', logout_view, name='logout'),
+    url(r'^about$', TemplateView.as_view(template_name='mvp/about.html')),
 )
 
 if settings.DEBUG:

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load easy_tag %}
+
+{% block page_title %}
+About
+{% endblock %}
+
+{% block content %}
+<p>
+At <a href="http://lostpropertyhq.com/" target="_launch">Lost Property</a> we use Github issues to manage our projects. We needed to keep our clients updated on progress, our less technical clients don't have Github accounts and are familiar with Excel, so it made sense to provide them with information in this format. So we created this tool.
+<br/><br/>
+The <a href="https://github.com/LostProperty/Github-Issues" target="_launch">source code</a> is on Github. If you spot any bugs or would like to suggest a new feature let us know using <a href="https://github.com/LostProperty/Github-Issues/issues" target="_launch">Github Issues</a>.
+</p>
+
+<h4>Origins</h4>
+<p>
+The project started out as a command line script to export issues. We knew people had the same need so created this website which requires no installation.
+<br/><br/>
+The project was originally part of a much more sophisticated tool called Feedback. The aim of the Feedback project was to let clients create issues and track progress without overwhelming them with too much technical information.
+<br/><br/>
+One of our major clients started to use JIRA so the need for the Feedback tool was negated, we could achieve what we needed by copying issues from JIRA to Github. We created a <a href="https://github.com/LostProperty/jira_to_github" target="_launch">JIRA to Github</a> commandline tool to automate this task.
+</p>
+
+<h4>Custom Development</h4
+<p>
+If you need custom develoment which interacts with an external service API such as Github, JIRA or YouTube then please get in touch <a href="mailto:hello@lostpropertyhq.com">hello@lostpropertyhq.com</a>.
+</p>
+
+{% endblock %}
