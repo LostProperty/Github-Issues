@@ -2,7 +2,7 @@
 
 from __future__ import absolute_import
 
-from os.path import join
+from os import environ
 
 from .base import *
 
@@ -21,3 +21,7 @@ DATABASES = {
 }
 
 STATIC_ROOT = '/srv/github_issues/static/'
+
+########## GITHUB ISSUES CONFIGURATION
+SOCIAL_AUTH_GITHUB_KEY = 'af784628317f37b22dba'
+SOCIAL_AUTH_GITHUB_SECRET = environ.get('GITHUB_CLIENT_SECRET')
