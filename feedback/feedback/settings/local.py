@@ -2,7 +2,7 @@
 
 from __future__ import absolute_import
 
-from os.path import join
+from os import environ
 
 from .base import *
 
@@ -62,3 +62,7 @@ MIDDLEWARE_CLASSES += (
 # http://django-debug-toolbar.readthedocs.org/en/latest/installation.html
 INTERNAL_IPS = ('127.0.0.1',)
 ########## END TOOLBAR CONFIGURATION
+
+########## GITHUB ISSUES CONFIGURATION
+SOCIAL_AUTH_GITHUB_KEY = 'a897cbdbb87c52c6bdf0'
+SOCIAL_AUTH_GITHUB_SECRET = environ.get('GITHUB_CLIENT_SECRET')
