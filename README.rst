@@ -6,7 +6,7 @@ Source code for http://github-issues.lostpropertyhq.com lets users log-in with t
 
 Getting set-up for development
 ------------------------------
-Is you are accessing a private repo you will need to set your Github password as an environment variable.
+If you are accessing a private repo you will need to set your Github password as an environment variable.
 ::
 
     export GITHUB_PASSWORD='your_github_password'
